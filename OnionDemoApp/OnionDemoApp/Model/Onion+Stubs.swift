@@ -5,40 +5,1019 @@
 //  Created by Jun on 18/4/24.
 //
 
-//
-//
-//extension Onion {
-//  static var stub: Onion<Model> {
-//    Onion<Model>(
-//      layer: Model(name: "Root"),
-//      layers: [
-//        Onion<Model>(
-//          layer: Model(name: "Child 1"),
-//          layers: []
-//        ),
-//        Onion<Model>(
-//          layer: Model(name: "Child 2"),
-//          layers: [
-//            Onion<Model>(
-//              layer: Model(name: "Leaf 1"),
-//              layers: []
-//            )
-//          ]
-//        ),
-//        Onion<Model>(
-//          layer: Model(name: "Child 3"),
-//          layers: [
-//            Onion<Model>(
-//              layer: Model(name: "Leaf 2"),
-//              layers: []
-//            )
-//          ]
-//        ),
-//        Onion<Model>(
-//          layer: Model(name: "Child 4"),
-//          layers: []
-//        )
-//      ]
-//    )
-//  }
-//}
+import Onion
+
+extension Message {
+  static var stubs: [Onion<Message>] {
+    [
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Jun",
+            avatarImageName: "jun"
+          ),
+          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Xen",
+                avatarImageName: "xen"
+              ),
+              message: "ああいうプロットのひねりがあればよかった"
+            ),
+            layers: [
+              Onion(
+                layer: Message(
+                  author: Author(
+                    name: "Gene",
+                    avatarImageName: "gene"
+                  ),
+                  message: "意味がなかったでしょう"
+                ),
+                layers: [
+                  Onion(
+                    layer: Message(
+                      author: Author(
+                        name: "Ickcee",
+                        avatarImageName: "ickcee"
+                      ),
+                      message: "その通り"
+                    )
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Gene",
+            avatarImageName: "gene"
+          ),
+          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Jun",
+                avatarImageName: "jun"
+              ),
+              message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Xen",
+                    avatarImageName: "xen"
+                  ),
+                  message: "ああいうプロットのひねりがあればよかった"
+                ),
+                layers: [
+                  Onion(
+                    layer: Message(
+                      author: Author(
+                        name: "Gene",
+                        avatarImageName: "gene"
+                      ),
+                      message: "意味がなかったでしょう"
+                    ),
+                    layers: [
+                      Onion(
+                        layer: Message(
+                          author: Author(
+                            name: "Ickcee",
+                            avatarImageName: "ickcee"
+                          ),
+                          message: "その通り"
+                        )
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Gene",
+                avatarImageName: "gene"
+              ),
+              message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+            )
+          ),
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Xen",
+                avatarImageName: "xen"
+              ),
+              message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Gene",
+                    avatarImageName: "gene"
+                  ),
+                  message: "ピクシス将軍が超大型巨人だと思ってた"
+                ),
+                layers: [
+                  Onion<Message>(
+                    layer: Message(
+                      author: Author(
+                        name: "Xen",
+                        avatarImageName: "xen"
+                      ),
+                      message: "たぶん彼がハゲだったと思います。"
+                    ),
+                    layers: [
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Jun",
+                            avatarImageName: "jun"
+                          ),
+                          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "ああいうプロットのひねりがあればよかった"
+                            ),
+                            layers: [
+                              Onion(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Gene",
+                                    avatarImageName: "gene"
+                                  ),
+                                  message: "意味がなかったでしょう"
+                                ),
+                                layers: [
+                                  Onion(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Ickcee",
+                                        avatarImageName: "ickcee"
+                                      ),
+                                      message: "その通り"
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Gene",
+                            avatarImageName: "gene"
+                          ),
+                          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Jun",
+                                avatarImageName: "jun"
+                              ),
+                              message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Xen",
+                                    avatarImageName: "xen"
+                                  ),
+                                  message: "ああいうプロットのひねりがあればよかった"
+                                ),
+                                layers: [
+                                  Onion(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Gene",
+                                        avatarImageName: "gene"
+                                      ),
+                                      message: "意味がなかったでしょう"
+                                    ),
+                                    layers: [
+                                      Onion(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Ickcee",
+                                            avatarImageName: "ickcee"
+                                          ),
+                                          message: "その通り"
+                                        )
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                            )
+                          ),
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Gene",
+                                    avatarImageName: "gene"
+                                  ),
+                                  message: "ピクシス将軍が超大型巨人だと思ってた"
+                                ),
+                                layers: [
+                                  Onion<Message>(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Xen",
+                                        avatarImageName: "xen"
+                                      ),
+                                      message: "たぶん彼がハゲだったと思います。"
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Xen",
+                            avatarImageName: "xen"
+                          ),
+                          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "ピクシス将軍が超大型巨人だと思ってた"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Xen",
+                                    avatarImageName: "xen"
+                                  ),
+                                  message: "たぶん彼がハゲだったと思います。"
+                                )
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                    
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Xen",
+            avatarImageName: "xen"
+          ),
+          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Gene",
+                avatarImageName: "gene"
+              ),
+              message: "ピクシス将軍が超大型巨人だと思ってた"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Xen",
+                    avatarImageName: "xen"
+                  ),
+                  message: "たぶん彼がハゲだったと思います。"
+                )
+              )
+            ]
+          )
+        ]
+      ),
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Jun",
+            avatarImageName: "jun"
+          ),
+          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Xen",
+                avatarImageName: "xen"
+              ),
+              message: "ああいうプロットのひねりがあればよかった"
+            ),
+            layers: [
+              Onion(
+                layer: Message(
+                  author: Author(
+                    name: "Gene",
+                    avatarImageName: "gene"
+                  ),
+                  message: "意味がなかったでしょう"
+                ),
+                layers: [
+                  Onion(
+                    layer: Message(
+                      author: Author(
+                        name: "Ickcee",
+                        avatarImageName: "ickcee"
+                      ),
+                      message: "その通り"
+                    )
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Gene",
+            avatarImageName: "gene"
+          ),
+          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Jun",
+                avatarImageName: "jun"
+              ),
+              message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Xen",
+                    avatarImageName: "xen"
+                  ),
+                  message: "ああいうプロットのひねりがあればよかった"
+                ),
+                layers: [
+                  Onion(
+                    layer: Message(
+                      author: Author(
+                        name: "Gene",
+                        avatarImageName: "gene"
+                      ),
+                      message: "意味がなかったでしょう"
+                    ),
+                    layers: [
+                      Onion(
+                        layer: Message(
+                          author: Author(
+                            name: "Ickcee",
+                            avatarImageName: "ickcee"
+                          ),
+                          message: "その通り"
+                        )
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Gene",
+                avatarImageName: "gene"
+              ),
+              message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+            )
+          ),
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Xen",
+                avatarImageName: "xen"
+              ),
+              message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Gene",
+                    avatarImageName: "gene"
+                  ),
+                  message: "ピクシス将軍が超大型巨人だと思ってた"
+                ),
+                layers: [
+                  Onion<Message>(
+                    layer: Message(
+                      author: Author(
+                        name: "Xen",
+                        avatarImageName: "xen"
+                      ),
+                      message: "たぶん彼がハゲだったと思います。"
+                    ),
+                    layers: [
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Jun",
+                            avatarImageName: "jun"
+                          ),
+                          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "ああいうプロットのひねりがあればよかった"
+                            ),
+                            layers: [
+                              Onion(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Gene",
+                                    avatarImageName: "gene"
+                                  ),
+                                  message: "意味がなかったでしょう"
+                                ),
+                                layers: [
+                                  Onion(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Ickcee",
+                                        avatarImageName: "ickcee"
+                                      ),
+                                      message: "その通り"
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Gene",
+                            avatarImageName: "gene"
+                          ),
+                          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Jun",
+                                avatarImageName: "jun"
+                              ),
+                              message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Xen",
+                                    avatarImageName: "xen"
+                                  ),
+                                  message: "ああいうプロットのひねりがあればよかった"
+                                ),
+                                layers: [
+                                  Onion(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Gene",
+                                        avatarImageName: "gene"
+                                      ),
+                                      message: "意味がなかったでしょう"
+                                    ),
+                                    layers: [
+                                      Onion(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Ickcee",
+                                            avatarImageName: "ickcee"
+                                          ),
+                                          message: "その通り"
+                                        )
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                            )
+                          ),
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Gene",
+                                    avatarImageName: "gene"
+                                  ),
+                                  message: "ピクシス将軍が超大型巨人だと思ってた"
+                                ),
+                                layers: [
+                                  Onion<Message>(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Xen",
+                                        avatarImageName: "xen"
+                                      ),
+                                      message: "たぶん彼がハゲだったと思います。"
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Xen",
+                            avatarImageName: "xen"
+                          ),
+                          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "ピクシス将軍が超大型巨人だと思ってた"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Xen",
+                                    avatarImageName: "xen"
+                                  ),
+                                  message: "たぶん彼がハゲだったと思います。"
+                                )
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                    
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      Onion<Message>(
+        layer: Message(
+          author: Author(
+            name: "Xen",
+            avatarImageName: "xen"
+          ),
+          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+        ),
+        layers: [
+          Onion<Message>(
+            layer: Message(
+              author: Author(
+                name: "Gene",
+                avatarImageName: "gene"
+              ),
+              message: "ピクシス将軍が超大型巨人だと思ってた"
+            ),
+            layers: [
+              Onion<Message>(
+                layer: Message(
+                  author: Author(
+                    name: "Xen",
+                    avatarImageName: "xen"
+                  ),
+                  message: "たぶん彼がハゲだったと思います。"
+                ),
+                layers: [
+                  Onion<Message>(
+                    layer: Message(
+                      author: Author(
+                        name: "Jun",
+                        avatarImageName: "jun"
+                      ),
+                      message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                    ),
+                    layers: [
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Xen",
+                            avatarImageName: "xen"
+                          ),
+                          message: "ああいうプロットのひねりがあればよかった"
+                        ),
+                        layers: [
+                          Onion(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "意味がなかったでしょう"
+                            ),
+                            layers: [
+                              Onion(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Ickcee",
+                                    avatarImageName: "ickcee"
+                                  ),
+                                  message: "その通り"
+                                )
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  Onion<Message>(
+                    layer: Message(
+                      author: Author(
+                        name: "Gene",
+                        avatarImageName: "gene"
+                      ),
+                      message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                    ),
+                    layers: [
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Jun",
+                            avatarImageName: "jun"
+                          ),
+                          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "ああいうプロットのひねりがあればよかった"
+                            ),
+                            layers: [
+                              Onion(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Gene",
+                                    avatarImageName: "gene"
+                                  ),
+                                  message: "意味がなかったでしょう"
+                                ),
+                                layers: [
+                                  Onion(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Ickcee",
+                                        avatarImageName: "ickcee"
+                                      ),
+                                      message: "その通り"
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Gene",
+                            avatarImageName: "gene"
+                          ),
+                          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                        )
+                      ),
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Xen",
+                            avatarImageName: "xen"
+                          ),
+                          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Gene",
+                                avatarImageName: "gene"
+                              ),
+                              message: "ピクシス将軍が超大型巨人だと思ってた"
+                            ),
+                            layers: [
+                              Onion<Message>(
+                                layer: Message(
+                                  author: Author(
+                                    name: "Xen",
+                                    avatarImageName: "xen"
+                                  ),
+                                  message: "たぶん彼がハゲだったと思います。"
+                                ),
+                                layers: [
+                                  Onion<Message>(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Jun",
+                                        avatarImageName: "jun"
+                                      ),
+                                      message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                                    ),
+                                    layers: [
+                                      Onion<Message>(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Xen",
+                                            avatarImageName: "xen"
+                                          ),
+                                          message: "ああいうプロットのひねりがあればよかった"
+                                        ),
+                                        layers: [
+                                          Onion(
+                                            layer: Message(
+                                              author: Author(
+                                                name: "Gene",
+                                                avatarImageName: "gene"
+                                              ),
+                                              message: "意味がなかったでしょう"
+                                            ),
+                                            layers: [
+                                              Onion(
+                                                layer: Message(
+                                                  author: Author(
+                                                    name: "Ickcee",
+                                                    avatarImageName: "ickcee"
+                                                  ),
+                                                  message: "その通り"
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  Onion<Message>(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Gene",
+                                        avatarImageName: "gene"
+                                      ),
+                                      message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                                    ),
+                                    layers: [
+                                      Onion<Message>(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Jun",
+                                            avatarImageName: "jun"
+                                          ),
+                                          message: "(笑) それはショーでとても大きなどんでん返しになっただろう 👀"
+                                        ),
+                                        layers: [
+                                          Onion<Message>(
+                                            layer: Message(
+                                              author: Author(
+                                                name: "Xen",
+                                                avatarImageName: "xen"
+                                              ),
+                                              message: "ああいうプロットのひねりがあればよかった"
+                                            ),
+                                            layers: [
+                                              Onion(
+                                                layer: Message(
+                                                  author: Author(
+                                                    name: "Gene",
+                                                    avatarImageName: "gene"
+                                                  ),
+                                                  message: "意味がなかったでしょう"
+                                                ),
+                                                layers: [
+                                                  Onion(
+                                                    layer: Message(
+                                                      author: Author(
+                                                        name: "Ickcee",
+                                                        avatarImageName: "ickcee"
+                                                      ),
+                                                      message: "その通り"
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      Onion<Message>(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Gene",
+                                            avatarImageName: "gene"
+                                          ),
+                                          message: "タイタンの起源やシフターは誰なのかなどについて理論を立てていた日々が懐かしいです。ほとんどすべての暴露は理論よりも優れていましたが、あなたの理論はかなり素晴らしいです。"
+                                        )
+                                      ),
+                                      Onion<Message>(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Xen",
+                                            avatarImageName: "xen"
+                                          ),
+                                          message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                                        ),
+                                        layers: [
+                                          Onion<Message>(
+                                            layer: Message(
+                                              author: Author(
+                                                name: "Gene",
+                                                avatarImageName: "gene"
+                                              ),
+                                              message: "ピクシス将軍が超大型巨人だと思ってた"
+                                            ),
+                                            layers: [
+                                              Onion<Message>(
+                                                layer: Message(
+                                                  author: Author(
+                                                    name: "Xen",
+                                                    avatarImageName: "xen"
+                                                  ),
+                                                  message: "たぶん彼がハゲだったと思います。"
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  Onion<Message>(
+                                    layer: Message(
+                                      author: Author(
+                                        name: "Xen",
+                                        avatarImageName: "xen"
+                                      ),
+                                      message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                                    ),
+                                    layers: [
+                                      Onion<Message>(
+                                        layer: Message(
+                                          author: Author(
+                                            name: "Gene",
+                                            avatarImageName: "gene"
+                                          ),
+                                          message: "ピクシス将軍が超大型巨人だと思ってた"
+                                        ),
+                                        layers: [
+                                          Onion<Message>(
+                                            layer: Message(
+                                              author: Author(
+                                                name: "Xen",
+                                                avatarImageName: "xen"
+                                              ),
+                                              message: "たぶん彼がハゲだったと思います。"
+                                            )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                                
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  Onion<Message>(
+                    layer: Message(
+                      author: Author(
+                        name: "Xen",
+                        avatarImageName: "xen"
+                      ),
+                      message: "私たちの多くは彼が巨大なタイタンだと思っていたのを覚えています。 古き良き時代。"
+                    ),
+                    layers: [
+                      Onion<Message>(
+                        layer: Message(
+                          author: Author(
+                            name: "Gene",
+                            avatarImageName: "gene"
+                          ),
+                          message: "ピクシス将軍が超大型巨人だと思ってた"
+                        ),
+                        layers: [
+                          Onion<Message>(
+                            layer: Message(
+                              author: Author(
+                                name: "Xen",
+                                avatarImageName: "xen"
+                              ),
+                              message: "たぶん彼がハゲだったと思います。"
+                            )
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      )
+    ]
+  }
+}
+

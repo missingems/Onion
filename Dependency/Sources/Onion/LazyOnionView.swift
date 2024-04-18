@@ -13,7 +13,20 @@ public struct LazyOnionView<Layer: Identifiable & Hashable & Equatable, Content:
   
   @Binding
   public var hiddenLayers: Set<Layer>
+  
+  @ViewBuilder
   public let builder: (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
+  
+  public init(
+    onion: Onion<Layer>,
+    depth: Int = 0,
+    hiddenLayers: Binding<Set<Layer>>,
+    @ViewBuilder builder: @escaping (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content) {
+    self.onion = onion
+    self.depth = depth
+    self._hiddenLayers = hiddenLayers
+    self.builder = builder
+  }
   
   public var body: some View {
     let isHidden = hiddenLayers.contains(onion.layer) == false
