@@ -29,7 +29,7 @@ public final class Onion<Layer: Identifiable & Hashable & Equatable>: Identifiab
       }
     }
     
-    var copy = self
+    let copy = self
     flatten(onion: copy)
     
     return layers
