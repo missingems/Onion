@@ -11,7 +11,9 @@
 		BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B272BD14FC000E6A73F /* ContentView.swift */; };
 		BF1F1B2A2BD14FC000E6A73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B292BD14FC000E6A73F /* Assets.xcassets */; };
 		BF1F1B2E2BD14FC000E6A73F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B2D2BD14FC000E6A73F /* Preview Assets.xcassets */; };
-		BF1F1B362BD1501900E6A73F /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = BF1F1B352BD1501900E6A73F /* Onion */; };
+		BF1F1B382BD1504800E6A73F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B372BD1504800E6A73F /* Model.swift */; };
+		BF1F1B3B2BD1521200E6A73F /* Onion+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B3A2BD1521200E6A73F /* Onion+Stubs.swift */; };
+		BF1F1B3E2BD1543100E6A73F /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = BF1F1B3D2BD1543100E6A73F /* Onion */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		BF1F1B292BD14FC000E6A73F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1F1B2B2BD14FC000E6A73F /* OnionDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnionDemoApp.entitlements; sourceTree = "<group>"; };
 		BF1F1B2D2BD14FC000E6A73F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF1F1B372BD1504800E6A73F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		BF1F1B3A2BD1521200E6A73F /* Onion+Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onion+Stubs.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1F1B362BD1501900E6A73F /* Onion in Frameworks */,
+				BF1F1B3E2BD1543100E6A73F /* Onion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 		BF1F1B242BD14FC000E6A73F /* OnionDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				BF1F1B392BD151EF00E6A73F /* Model */,
 				BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */,
 				BF1F1B272BD14FC000E6A73F /* ContentView.swift */,
 				BF1F1B292BD14FC000E6A73F /* Assets.xcassets */,
@@ -69,6 +74,15 @@
 				BF1F1B2D2BD14FC000E6A73F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF1F1B392BD151EF00E6A73F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF1F1B372BD1504800E6A73F /* Model.swift */,
+				BF1F1B3A2BD1521200E6A73F /* Onion+Stubs.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,7 +102,7 @@
 			);
 			name = OnionDemoApp;
 			packageProductDependencies = (
-				BF1F1B352BD1501900E6A73F /* Onion */,
+				BF1F1B3D2BD1543100E6A73F /* Onion */,
 			);
 			productName = OnionDemoApp;
 			productReference = BF1F1B222BD14FC000E6A73F /* OnionDemoApp.app */;
@@ -119,7 +133,7 @@
 			);
 			mainGroup = BF1F1B192BD14FC000E6A73F;
 			packageReferences = (
-				BF1F1B342BD1501900E6A73F /* XCLocalSwiftPackageReference ".." */,
+				BF1F1B3C2BD1543100E6A73F /* XCLocalSwiftPackageReference "../Dependency" */,
 			);
 			productRefGroup = BF1F1B232BD14FC000E6A73F /* Products */;
 			projectDirPath = "";
@@ -149,6 +163,8 @@
 			files = (
 				BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */,
 				BF1F1B262BD14FC000E6A73F /* OnionDemoApp.swift in Sources */,
+				BF1F1B382BD1504800E6A73F /* Model.swift in Sources */,
+				BF1F1B3B2BD1521200E6A73F /* Onion+Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +385,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		BF1F1B342BD1501900E6A73F /* XCLocalSwiftPackageReference ".." */ = {
+		BF1F1B3C2BD1543100E6A73F /* XCLocalSwiftPackageReference "../Dependency" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ..;
+			relativePath = ../Dependency;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BF1F1B352BD1501900E6A73F /* Onion */ = {
+		BF1F1B3D2BD1543100E6A73F /* Onion */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Onion;
 		};

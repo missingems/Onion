@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct LazyOnionView<Layer: Identifiable & Hashable & Equatable, Content: View>: View {
-  let onion: Onion<Layer>
+  public let onion: Onion<Layer>
   private var depth: Int = 0
   
   @Binding
-  var hiddenLayers: Set<Layer>
-  let builder: (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
+  public var hiddenLayers: Set<Layer>
+  public let builder: (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
   
   public var body: some View {
     let isHidden = hiddenLayers.contains(onion.layer) == false
