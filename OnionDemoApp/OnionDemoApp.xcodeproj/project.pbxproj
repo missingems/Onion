@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF1F1B262BD14FC000E6A73F /* OnionDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B252BD14FC000E6A73F /* OnionDemoAppApp.swift */; };
+		BF1F1B262BD14FC000E6A73F /* OnionDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */; };
 		BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B272BD14FC000E6A73F /* ContentView.swift */; };
 		BF1F1B2A2BD14FC000E6A73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B292BD14FC000E6A73F /* Assets.xcassets */; };
 		BF1F1B2E2BD14FC000E6A73F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B2D2BD14FC000E6A73F /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		BF1F1B222BD14FC000E6A73F /* OnionDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnionDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF1F1B252BD14FC000E6A73F /* OnionDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionDemoAppApp.swift; sourceTree = "<group>"; };
+		BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionDemoApp.swift; sourceTree = "<group>"; };
 		BF1F1B272BD14FC000E6A73F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF1F1B292BD14FC000E6A73F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1F1B2B2BD14FC000E6A73F /* OnionDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnionDemoApp.entitlements; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		BF1F1B242BD14FC000E6A73F /* OnionDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF1F1B252BD14FC000E6A73F /* OnionDemoAppApp.swift */,
+				BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */,
 				BF1F1B272BD14FC000E6A73F /* ContentView.swift */,
 				BF1F1B292BD14FC000E6A73F /* Assets.xcassets */,
 				BF1F1B2B2BD14FC000E6A73F /* OnionDemoApp.entitlements */,
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */,
-				BF1F1B262BD14FC000E6A73F /* OnionDemoAppApp.swift in Sources */,
+				BF1F1B262BD14FC000E6A73F /* OnionDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
