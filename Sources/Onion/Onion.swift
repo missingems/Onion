@@ -6,7 +6,7 @@
 //
 
 public final class Onion<Layer: Identifiable & Hashable & Equatable>: Identifiable {
-  public var id: Layer { self.layer }
+  public var id: Layer { layer }
   public let layer: Layer
   public var layers: [Onion<Layer>] = []
   
