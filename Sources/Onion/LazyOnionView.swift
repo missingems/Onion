@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct LazyOnionView<Layer: Identifiable & Hashable & Equatable, Content: View>: View {
   let onion: Onion<Layer>
-  private(set) var depth: Int = 0
+  private var depth: Int = 0
   
   @Binding
   var hiddenLayers: Set<Layer>
