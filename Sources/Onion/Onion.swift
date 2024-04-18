@@ -17,4 +17,21 @@ public final class Onion<Layer: Identifiable & Hashable & Equatable>: Identifiab
     self.layer = layer
     self.layers = layers
   }
+  
+  public func flatten() async -> [Layer] {
+    var layers: [Layer] = []
+    
+    func flatten(onion: Onion) {
+      layers.append(onion.layer)
+      
+      for layer in onion.layers {
+        flatten(onion: layer)
+      }
+    }
+    
+    var copy = self
+    flatten(onion: copy)
+    
+    return layers
+  }
 }
