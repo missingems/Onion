@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		624E2C702BD24B370007F37A /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = 624E2C6F2BD24B370007F37A /* Onion */; };
+		626822FD2BD24D4A00E9FB3F /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = 626822FC2BD24D4A00E9FB3F /* Onion */; };
 		BF1F1B262BD14FC000E6A73F /* OnionDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */; };
 		BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B272BD14FC000E6A73F /* ContentView.swift */; };
 		BF1F1B2A2BD14FC000E6A73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B292BD14FC000E6A73F /* Assets.xcassets */; };
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624E2C702BD24B370007F37A /* Onion in Frameworks */,
+				626822FD2BD24D4A00E9FB3F /* Onion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 			);
 			name = OnionDemoApp;
 			packageProductDependencies = (
-				624E2C6F2BD24B370007F37A /* Onion */,
+				626822FC2BD24D4A00E9FB3F /* Onion */,
 			);
 			productName = OnionDemoApp;
 			productReference = BF1F1B222BD14FC000E6A73F /* OnionDemoApp.app */;
@@ -141,7 +141,7 @@
 			);
 			mainGroup = BF1F1B192BD14FC000E6A73F;
 			packageReferences = (
-				620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */,
+				626822FB2BD24D4A00E9FB3F /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = BF1F1B232BD14FC000E6A73F /* Products */;
 			projectDirPath = "";
@@ -397,16 +397,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */ = {
+		626822FB2BD24D4A00E9FB3F /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Onion;
+			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		624E2C6F2BD24B370007F37A /* Onion */ = {
+		626822FC2BD24D4A00E9FB3F /* Onion */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */;
 			productName = Onion;
 		};
 /* End XCSwiftPackageProductDependency section */
