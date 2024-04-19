@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624E2C702BD24B370007F37A /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = 624E2C6F2BD24B370007F37A /* Onion */; };
 		BF1F1B262BD14FC000E6A73F /* OnionDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B252BD14FC000E6A73F /* OnionDemoApp.swift */; };
 		BF1F1B282BD14FC000E6A73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B272BD14FC000E6A73F /* ContentView.swift */; };
 		BF1F1B2A2BD14FC000E6A73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B292BD14FC000E6A73F /* Assets.xcassets */; };
 		BF1F1B2E2BD14FC000E6A73F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1F1B2D2BD14FC000E6A73F /* Preview Assets.xcassets */; };
 		BF1F1B382BD1504800E6A73F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B372BD1504800E6A73F /* Model.swift */; };
 		BF1F1B3B2BD1521200E6A73F /* Onion+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F1B3A2BD1521200E6A73F /* Onion+Stubs.swift */; };
-		BF1F1B3E2BD1543100E6A73F /* Onion in Frameworks */ = {isa = PBXBuildFile; productRef = BF1F1B3D2BD1543100E6A73F /* Onion */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,18 +32,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1F1B3E2BD1543100E6A73F /* Onion in Frameworks */,
+				624E2C702BD24B370007F37A /* Onion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		620FCB382BD2494A009E76CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF1F1B192BD14FC000E6A73F = {
 			isa = PBXGroup;
 			children = (
 				BF1F1B242BD14FC000E6A73F /* OnionDemoApp */,
 				BF1F1B232BD14FC000E6A73F /* Products */,
+				620FCB382BD2494A009E76CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +110,7 @@
 			);
 			name = OnionDemoApp;
 			packageProductDependencies = (
-				BF1F1B3D2BD1543100E6A73F /* Onion */,
+				624E2C6F2BD24B370007F37A /* Onion */,
 			);
 			productName = OnionDemoApp;
 			productReference = BF1F1B222BD14FC000E6A73F /* OnionDemoApp.app */;
@@ -116,7 +124,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					BF1F1B212BD14FC000E6A73F = {
 						CreatedOnToolsVersion = 15.2;
@@ -133,7 +141,7 @@
 			);
 			mainGroup = BF1F1B192BD14FC000E6A73F;
 			packageReferences = (
-				BF1F1B3C2BD1543100E6A73F /* XCLocalSwiftPackageReference "../Dependency" */,
+				620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */,
 			);
 			productRefGroup = BF1F1B232BD14FC000E6A73F /* Products */;
 			projectDirPath = "";
@@ -205,6 +213,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -266,6 +275,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -293,6 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnionDemoApp/OnionDemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OnionDemoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 25WL36ABTN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -331,6 +342,7 @@
 				CODE_SIGN_ENTITLEMENTS = OnionDemoApp/OnionDemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OnionDemoApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 25WL36ABTN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -385,15 +397,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		BF1F1B3C2BD1543100E6A73F /* XCLocalSwiftPackageReference "../Dependency" */ = {
+		620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Dependency;
+			relativePath = ../Onion;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BF1F1B3D2BD1543100E6A73F /* Onion */ = {
+		624E2C6F2BD24B370007F37A /* Onion */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 620FCB782BD24AE7009E76CF /* XCLocalSwiftPackageReference "../Onion" */;
 			productName = Onion;
 		};
 /* End XCSwiftPackageProductDependency section */

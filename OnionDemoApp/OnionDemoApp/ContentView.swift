@@ -18,7 +18,7 @@ struct ContentView: View {
         LazyVGrid(columns: [GridItem()]) {
           VStack(alignment: .leading, spacing: 0) {
             ForEach(Message.stubs) { onion in
-              LazyOnionView(
+              OnionView(
                 onion: onion,
                 hiddenLayers: $hiddenLayers
               ) { onion, depth, isHidden in
