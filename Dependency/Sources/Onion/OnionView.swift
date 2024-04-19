@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct LazyOnionView<Layer: Identifiable & Hashable & Equatable, Content: View>: View {
+public struct OnionView<Layer: Identifiable & Hashable & Equatable, Content: View>: View {
   public let onion: Onion<Layer>
   private var depth: Int = 0
   
@@ -35,7 +35,7 @@ public struct LazyOnionView<Layer: Identifiable & Hashable & Equatable, Content:
     
     if isHidden {
       ForEach(onion.layers) { layer in
-        LazyOnionView(
+        OnionView(
           onion: layer,
           depth: depth + 1,
           hiddenLayers: $hiddenLayers
