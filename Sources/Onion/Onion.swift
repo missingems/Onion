@@ -23,7 +23,7 @@ public final class Onion<Layer: Identifiable & Hashable>: Identifiable {
     isParent = onions.isEmpty == false
   }
   
-  public func flattened() async -> [Layer] {
+  public func flattened() -> [Layer] {
     var _layers: [Layer] = []
     
     func flatten(_ onion: Onion<Layer>) {
