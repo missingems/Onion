@@ -21,7 +21,8 @@ public struct OnionView<Layer: Identifiable & Hashable & Equatable, Content: Vie
     onion: Onion<Layer>,
     depth: Int = 0,
     hiddenLayers: Binding<Set<Layer>>,
-    @ViewBuilder builder: @escaping (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content) {
+    @ViewBuilder builder: @escaping (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
+  ) {
     self.onion = onion
     self.depth = depth
     self._hiddenLayers = hiddenLayers
