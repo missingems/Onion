@@ -5,16 +5,37 @@
 //  Created by Jun on 18/4/24.
 //
 
-public final class Onion<Layer: Identifiable & Hashable & Equatable>: Identifiable {
-  public var id: Layer { layer }
-  public let layer: Layer
-  public var layers: [Onion<Layer>] = []
+import Foundation
+
+public final class Onion<Layer: Identifiable & Hashable>: Identifiable {
+  public typealias LayerType = Layer
+  public var id: LayerType { layer }
+  public let isParent: Bool
+  public let layer: LayerType
+  public var onions: [Onion<LayerType>] = []
   
   public init(
     layer: Layer,
-    layers: [Onion<Layer>] = []
+    onions: [Onion<Layer>] = []
   ) {
     self.layer = layer
-    self.layers = layers
+    self.onions = onions
+    isParent = onions.isEmpty == false
+  }
+  
+  public func flattened() async -> [Layer] {
+    var _layers: [Layer] = []
+    
+    func flatten(_ onion: Onion<Layer>) {
+      _layers.append(onion.layer)
+      
+      onion.onions.forEach { onion in
+        flatten(onion)
+      }
+    }
+    
+    flatten(self)
+    
+    return _layers
   }
 }

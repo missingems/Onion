@@ -9,6 +9,11 @@ import Onion
 import SwiftUI
 
 struct ContentView: View {
+  enum MessageRowType: Equatable {
+    case parent(numberOfChild: Int)
+    case child
+  }
+  
   @State
   private var hiddenLayers: Set<Message> = []
   
@@ -21,10 +26,10 @@ struct ContentView: View {
               OnionView(
                 onion: onion,
                 hiddenLayers: $hiddenLayers
-              ) { onion, depth, isHidden in
+              ) { onion, paths, isHidden in
                 contentView(
                   onion,
-                  depth: depth,
+                  paths: paths,
                   isHidden: isHidden
                 )
               }
@@ -41,104 +46,107 @@ struct ContentView: View {
     }
   }
   
-  @ViewBuilder
-  private func contentView(_ onion: Onion<Message>, depth: Int, isHidden: Bool) -> some View {
-    Button(action: {
-      withAnimation {
-        if hiddenLayers.contains(onion.layer) {
-          hiddenLayers.remove(onion.layer)
-        } else {
-          hiddenLayers.insert(onion.layer)
-        }
-      }
-    }, label: {
-      messageRow(
-        onion.layer,
-        depth: depth, 
-        isHidden: isHidden
-      )
-    })
-    .disabled(onion.layers.isEmpty)
+  private func doSomething(paths: [Onion<Message>], index: Int) {
+    return withAnimation {
+      hiddenLayers.insert(paths[index - 1].layer)
+    }
   }
   
   @ViewBuilder
-  private func messageRow(_ message: Message, depth: Int, isHidden: Bool) -> some View {
-    let isRoot = depth == 0
-    
+  private func contentView(_ onion: Onion<Message>, paths: [Onion<Message>], isHidden: Bool) -> some View {
     HStack(spacing: 16.0) {
-      if isRoot == false {
-        ForEach(1...depth, id: \.self) { _ in
-          Line()
-            .stroke(style: .init(dash: [3]))
-            .foregroundStyle(.separator)
-            .frame(width: 1)
-            .offset(x: 13.0)
+      if paths.count != 0 {
+        ForEach(1...paths.count, id: \.self) { index in
+          Button(action: {
+            doSomething(paths: paths, index: index)
+          }, label: {
+            Line()
+              .stroke(style: .init(dash: [3]))
+              .foregroundStyle(.separator)
+              .frame(width: 10)
+              .offset(x: 8.0)
+          })
         }
       }
       
-      VStack(alignment: .leading) {
-        HStack(alignment: .center, spacing: 5.0) {
-          Image(message.author.avatarImageName)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .scaledToFill()
-            .clipShape(.circle)
-            .frame(width: 22, height: 22)
-          
-          Text(message.author.name.uppercased())
-            .font(.caption)
-            .fontWeight(.medium)
-            .multilineTextAlignment(.leading)
-            .foregroundStyle(Color.secondary)
-        }
-        
-        Text(message.message)
-          .font(.body)
-          .multilineTextAlignment(.leading)
-          .foregroundStyle(Color.primary)
-          .frame(maxWidth: .infinity, alignment: .leading)
-      }
-      .padding(.horizontal, 11.0)
-      .padding(.vertical, 13.0)
-      .background(content: {
-        if isRoot {
-          if isHidden {
-            LinearGradient(
-              gradient: Gradient(colors: [Color(.tertiarySystemFill), Color(.secondarySystemFill)]),
-              startPoint: .top,
-              endPoint: .bottom
-            )
-          } else {
-            LinearGradient(
-              gradient: Gradient(colors: [.yellow.opacity(0.618), .orange.opacity(0.618)]),
-              startPoint: .top,
-              endPoint: .bottom
-            )
+      VStack {
+        Button(action: {
+          withAnimation {
+            if hiddenLayers.contains(onion.layer) {
+              hiddenLayers.remove(onion.layer)
+            } else {
+              hiddenLayers.insert(onion.layer)
+            }
           }
-        } else {
-          Color.clear
-        }
-      })
-      .overlay(
-        RoundedRectangle(cornerRadius: 13.0)
-          .stroke(
-            isRoot ? Color(.separator) : Color.clear,
-            lineWidth: 1
+        }, label: {
+          messageRow(
+            onion.layer,
+            type: onion.isParent ? .parent(numberOfChild: onion.onions.count) : .child,
+            isHidden: isHidden
           )
-      )
-      .cornerRadius(isRoot ? 13.0 : 0)
-      .shadow(color: isRoot ? .black.opacity(0.05) : .clear, radius: 5.0, y: 5)
+        })
+        .disabled(!onion.isParent)
+      }
     }
-    .padding(.top, isRoot ? 13.0 : 0)
   }
-}
-
-struct Line:Shape{
-  func path(in rect: CGRect) -> Path {
-    var path = Path()
-    path.move(to: CGPoint(x: 0, y: 0))
-    path.addLine(to: CGPoint(x: 0, y: rect.height))
-    return path
+  
+  @ViewBuilder
+  private func messageRow(_ message: Message, type: MessageRowType, isHidden: Bool) -> some View {
+    VStack(alignment: .leading, spacing: 5.0) {
+      HStack(alignment: .center, spacing: 5.0) {
+        Image(message.author.avatarImageName)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .scaledToFill()
+          .clipShape(.circle)
+          .frame(width: 22, height: 22)
+        
+        Text(message.author.name.uppercased())
+          .font(.caption)
+          .fontWeight(.medium)
+          .multilineTextAlignment(.leading)
+          .foregroundStyle(Color.secondary)
+        
+        Spacer()
+        
+        if case let .parent(numberOfChild) = type, isHidden {
+          Text("\(numberOfChild)")
+            .font(.caption)
+            .fontWeight(.semibold)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 5.0)
+            .background(Color.black.opacity(0.3))
+            .clipShape(.capsule)
+        }
+      }
+      
+      Text(message.message)
+        .font(.body)
+        .multilineTextAlignment(.leading)
+        .foregroundStyle(Color.primary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    .padding(.horizontal, 11.0)
+    .padding(.vertical, 13.0)
+    .background(
+      content: {
+        if type != .child, isHidden {
+          LinearGradient(
+            gradient: Gradient(colors: [.yellow.opacity(0.618/1), .orange.opacity(0.618/1)]),
+            startPoint: .top,
+            endPoint: .bottom
+          )
+        } else {
+          Color(.systemBackground)
+        }
+      }
+    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 13.0).stroke(Color(.separator), lineWidth: 1)
+    )
+    .cornerRadius(13)
+    .shadow(color: type != .child ? .black.opacity(0.05) : .clear, radius: 5.0, y: 5)
+    .padding(.top, 8.0)
   }
 }
 

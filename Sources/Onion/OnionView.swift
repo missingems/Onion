@@ -9,41 +9,47 @@ import SwiftUI
 
 public struct OnionView<Layer: Identifiable & Hashable & Equatable, Content: View>: View {
   public let onion: Onion<Layer>
-  private var depth: Int = 0
+  private var paths: [Onion<Layer>] = []
   
   @Binding
   public var hiddenLayers: Set<Layer>
   
   @ViewBuilder
-  public let builder: (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
+  public let builder: (Onion<Layer>, _ paths: [Onion<Layer>], _ isHidden: Bool) -> Content
   
   public init(
     onion: Onion<Layer>,
-    depth: Int = 0,
+    paths: [Onion<Layer>] = [],
     hiddenLayers: Binding<Set<Layer>>,
-    @ViewBuilder builder: @escaping (Onion<Layer>, _ depth: Int, _ isHidden: Bool) -> Content
+    @ViewBuilder builder: @escaping (Onion<Layer>, _ paths: [Onion<Layer>], _ isHidden: Bool) -> Content
   ) {
     self.onion = onion
-    self.depth = depth
+    self.paths = paths
     self._hiddenLayers = hiddenLayers
     self.builder = builder
   }
   
   public var body: some View {
-    let isHidden = hiddenLayers.contains(onion.layer) == false
+    let isHidden = hiddenLayers.contains(onion.layer)
     
-    builder(onion, depth, isHidden)
+    builder(onion, paths, isHidden)
     
-    if isHidden {
-      ForEach(onion.layers) { layer in
+    if !isHidden {
+      ForEach(onion.onions) { onion in
         OnionView(
-          onion: layer,
-          depth: depth + 1,
+          onion: onion,
+          paths: updatingOnions(paths, with: self.onion),
           hiddenLayers: $hiddenLayers
-        ) { layer, depth, isHidden in
-          builder(layer, depth, isHidden)
+        ) { layer, paths, isHidden in
+          builder(layer, paths, isHidden)
         }
       }
     }
+  }
+  
+  private func updatingOnions(_ onions: [Onion<Layer>], with newOnion: Onion<Layer>) -> [Onion<Layer>] {
+    var onions = onions
+    onions.append(newOnion)
+    return onions
   }
 }
